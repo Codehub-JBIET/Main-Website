@@ -1,4 +1,4 @@
-import Hero from "./Hero/page";
+import {Hero} from "./Hero/page";
 
 
 export {Hero};
