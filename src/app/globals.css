@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+.floating-dock {
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.dark .floating-dock {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.fixed-bottom-center {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    width: 100%;
+    max-width: 1024px;
+}
+
+.navbar-transparent {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .navbar-transparent {
+    background-color: rgba(0, 0, 0, 0.5);
+}
