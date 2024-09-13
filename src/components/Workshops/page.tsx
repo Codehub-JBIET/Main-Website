@@ -1,90 +1,85 @@
 "use client";
-
 import Image from "next/image";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
-import Link from "next/link";
-
-const cardData = [
-    {
-        title: "Make things float in air",
-        description: "Hover over this card to unleash the power of CSS perspective",
-        imageUrl:
-            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: "https://twitter.com/mannupaaji"
-    },
-    {
-        title: "Explore the beauty of the ocean",
-        description: "Discover the mysteries of the deep blue sea with this card",
-        imageUrl:
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: "https://twitter.com/exploreoceans"
-    },
-    {
-        title: "Reach for the stars",
-        description: "Hover over this card to feel like you're floating in space",
-        imageUrl:
-            "https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: "https://twitter.com/starscape"
-    },
-    {
-        title: "Fly above the mountains",
-        description: "Experience the breathtaking views of mountain ranges",
-        imageUrl:
-            "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: "https://twitter.com/mountainfly"
-    }
-];
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { bw, fw,fe1, be3, ml1, ma1 } from "../../../public";
+import {useSelector} from 'react-redux';
 
 export function Workshops() {
-    return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-            {cardData.map((card, index) => (
-                <CardContainer key={index} className="inter-var">
-                    <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
-                        <CardItem
-                            translateZ="50"
-                            className="text-xl font-bold text-neutral-600 dark:text-white"
-                        >
-                            {card.title}
-                        </CardItem>
-                        <CardItem
-                            as="p"
-                            translateZ="60"
-                            className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-                        >
-                            {card.description}
-                        </CardItem>
-                        <CardItem translateZ="100" className="w-full mt-4">
-                            <Image
-                                src={card.imageUrl}
-                                height="1000"
-                                width="1000"
-                                className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                                alt="thumbnail"
-                            />
-                        </CardItem> 
-                        <div className="flex justify-between items-center mt-20">
-                            <CardItem
-                                translateZ={20}
-                                as={Link}
-                                href={card.link}
-                                target="__blank"
-                                className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-                            >
-                                Try now →
-                            </CardItem>
-                            <CardItem
-                                translateZ={20}
-                                as="button"
-                                className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                            >
-                                Sign up
-                            </CardItem>
-                        </div>
-                    </CardBody>
-                </CardContainer>
-            ))}
-        </div>
-    );
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
+  const theme = useSelector((state : any) => state.theme.theme);
+  return (
+        <div className={`w-full h-full py-20 ${theme === "dark" ? "bg-gray-950" : "bg-white"}`}>
+      <h2 className={`max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold ${theme === "dark" ? "text-white" : "text-black"} font-sans`}>
+        Upcoming Workshops.
+      </h2>
+      <Carousel items={cards} />
+    </div>
+  );
 }
+
+const DummyContent = () => {
+    const theme = useSelector((state : any) => state.theme.theme);
+  return (
+    <>
+      {/* {[...new Array(3).fill(1)].map((_, index) => {
+        return (
+          <div
+            key={"dummy-content" + index}
+            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+          >
+            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+              <span className="font-bold text-neutral-700 dark:text-neutral-200">
+                The first rule of Apple club is that you boast about Apple club.
+              </span>{" "}
+              Keep a journal, quickly jot down a grocery list, and take amazing
+              class notes. Want to convert those notes to text? No problem.
+              Langotiya jeetu ka mara hua yaar is ready to capture every
+              thought.
+            </p>
+            <Image
+              src="https://assets.aceternity.com/macbook.png"
+              alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+            />
+          </div>
+        );
+      })} */}
+      <div className={`${theme=='dark'?'text-white':'text-black'} text-4xl`}>
+        Registraions will be open soon!
+      </div>
+    </>
+  );
+};
+
+const data = [
+  {
+    category: "Frontend Development",
+    title: "Build Beautiful Websites!",
+    src: fe1,
+    content: <DummyContent />,
+  },
+  {
+    category: "Backend Development",
+    title: "Build the Engine of the Web!.",
+    src: be3,
+    content: <DummyContent />,
+  },
+  {
+    category: "Machine Learning",
+    title: "Unlock the Power of AI",
+    src: ml1,
+    content: <DummyContent />,
+  },
+
+  {
+    category: "Mobile App Development",
+    title: " Create the Future of Apps",
+    src: ma1,
+    content: <DummyContent />,
+  },
+];
