@@ -1,5 +1,5 @@
 'use client'
-import { Hero, TimelineSection, Workshops } from "@/components";
+import { Hero, TimelineSection, Workshops,Navbar } from "@/components";
 import { store } from "@/redux/store";
 import { Provider } from "react-redux";
 
@@ -9,6 +9,7 @@ export default function Home() {
       <Hero />
       <TimelineSection/>
       <Workshops />
+      <Navbar />
     </Provider>
   );
 }
