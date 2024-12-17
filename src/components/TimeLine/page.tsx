@@ -52,7 +52,7 @@ export function TimelineSection() {
             <br />
 
             <strong>Event Collaboration:</strong> CodeHub in collaboration with
-            Our alumni at JBIET hosted an insightful event centered around Industry.
+            Our alumni at JBIET hosted an insightful event about the importance of Engineers.
             <br />
             <strong>Interaction with students:</strong> Students actively participated in the session, clarified their doubts, and 
             explored the corporate world in their own words, Students got to know the real scenarios of an engineer daily.
