@@ -15,17 +15,19 @@ export const BackgroundLines = ({
     duration?: number;
   };
 }) => {
-  const theme = useSelector((state : any) => state.theme.theme); // Access the current theme from Redux
+  const theme = useSelector((state: any) => state.theme.theme);
 
   return (
     <div
       className={cn(
-        `h-[20rem] md:h-screen w-full ${theme === "dark" ? "bg-black" : "bg-white"}`, // Set background based on theme
+        `relative w-full h-full ${theme === "dark" ? "bg-black" : "bg-white"} overflow-hidden`,
         className
       )}
     >
       <SVG svgOptions={svgOptions} />
-      {children}
+      <div className="relative z-10 h-full flex flex-col justify-center">
+        {children}
+      </div>
     </div>
   );
 };
